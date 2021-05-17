@@ -1,0 +1,22 @@
+{
+  "name": "08-websocket-server",
+  "version": "1.0.0",
+  "description": "Webserver socket nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socket",
+    "web",
+    "server"
+  ],
+  "author": "Edson Valenzuela",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2"
+  }
+}
