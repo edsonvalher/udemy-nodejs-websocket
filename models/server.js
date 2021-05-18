@@ -23,6 +23,28 @@ class Server {
 
         // Rutas de mi aplicación
         this.routes();
+
+        //path para manejo de eventos de sockets
+
+        this.sockets()
+    }
+
+    sockets() {
+        this.io.on('connection', socket => {
+            console.log('Cliente conectado!', socket.id)
+
+            socket.on('disconnect', () => {
+                console.log('Cliente desconectado', socket.id)
+            })
+
+            //evento listener personalizado
+            socket.on('enviar-mensaje', (payload) => {
+                //console.log(payload)
+                this.io.emit('enviar-mensaje', payload) //cuando el servidor lo envía
+
+            })
+
+        })
     }
 
     middlewares() {

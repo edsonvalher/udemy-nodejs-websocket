@@ -13,8 +13,25 @@
 
 <body class="container">
     <h1 class="mt-2">Socket Client</h1>
-
     <hr>
+    <p>
+        Server status
+
+        <span id="lblonline" class="text-success">Online</span>
+        <span id="lbloffline" class="text-danger">Offline</span>
+    </p>
+
+
+    <div class="row">
+        <div class="col">
+            <input type="text" id="txtMensaje" class="form-control">
+        </div>
+        <div class="col">
+            <button id="btnEnviar" class="btn btn-primary">
+                Enviar
+            </button>
+        </div>
+    </div>
 
     <script src="./socket.io/socket.io.js"></script>
     <script src="js/socket-client.js"></script>
