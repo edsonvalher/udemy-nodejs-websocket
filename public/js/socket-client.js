@@ -26,6 +26,14 @@ socket.on('enviar-mensaje', (payload) => {
 
 btnEnviar.addEventListener('click', () => {
     const mensaje = txtMensaje.value
+    const payload = {
+        mensaje,
+        id: '123abc',
+        fecha: new Date().getTime()
+    }
 
-    socket.emit('enviar-mensaje', mensaje)
+    //solo este cliente recibe desde el servidor
+    socket.emit('enviar-mensaje', payload, (id) => {
+        console.log('Desde el servidor', id)
+    })
 })

@@ -31,16 +31,19 @@ class Server {
 
     sockets() {
         this.io.on('connection', socket => {
-            console.log('Cliente conectado!', socket.id)
+            //console.log('Cliente conectado!', socket.id)
 
             socket.on('disconnect', () => {
-                console.log('Cliente desconectado', socket.id)
+                //console.log('Cliente desconectado', socket.id)
             })
 
-            //evento listener personalizado
-            socket.on('enviar-mensaje', (payload) => {
+            //evento listener personalizado recibido desde cliente
+            socket.on('enviar-mensaje', (payload, callback) => {
                 //console.log(payload)
-                this.io.emit('enviar-mensaje', payload) //cuando el servidor lo envía
+                //this.io.emit('enviar-mensaje', payload) //cuando el servidor lo envía
+                const id = 123456
+                callback({ id, fecha: new Date().getTime() })
+
 
             })
 
